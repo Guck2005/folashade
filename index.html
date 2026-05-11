@@ -24,7 +24,26 @@
         </span>
         <span class="navbar__brand-text">Hamidath</span>
       </a>
-      <div class="navbar__end">
+      <button
+        type="button"
+        class="navbar__toggle"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="menu-principal"
+        aria-label="Ouvrir le menu"
+      >
+        <span class="navbar__toggle-box" aria-hidden="true">
+          <span class="navbar__toggle-bar"></span>
+          <span class="navbar__toggle-bar"></span>
+          <span class="navbar__toggle-bar"></span>
+        </span>
+      </button>
+      <div
+        class="navbar__backdrop"
+        id="menu-backdrop"
+        aria-hidden="true"
+      ></div>
+      <div class="navbar__panel" id="menu-principal">
         <nav class="navbar__nav" aria-label="Navigation principale">
           <a href="#accueil">Accueil</a>
           <a href="#projets">Projets</a>
@@ -54,5 +73,6 @@
       </div>
       <a class="hero__projects" href="#projets">Mes projets</a>
     </section>
+    <script src="main.js" defer></script>
   </body>
 </html>
