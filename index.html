@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a class="navbar__brand" href="#accueil">
+        <span class="navbar__brand-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 1.5l2.6 6.4 6.9.5-5.3 4.5 1.6 6.8L12 16.9 7.2 19.7l1.6-6.8-5.3-4.5 6.9-.5L12 1.5z"
+            />
+          </svg>
+        </span>
+        <span class="navbar__brand-text">Hamidath</span>
+      </a>
+      <div class="navbar__end">
+        <nav class="navbar__nav" aria-label="Navigation principale">
+          <a href="#accueil">Accueil</a>
+          <a href="#projets">Projets</a>
+        </nav>
+        <a class="navbar__cta" href="#contact">Me contacter</a>
+      </div>
+    </header>
+
+    <section class="hero" id="accueil" aria-label="Accueil">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__content">
+        <div class="hero__photo-wrap">
+          <img
+            class="hero__photo"
+            src="assets/images/hamidath_photo.png"
+            alt="Portrait"
+            width="480"
+            height="480"
+          />
+        </div>
+      </div>
+      <div class="hero__mist" aria-hidden="true"></div>
+      <div class="hero__headline">
+        <p class="hero__kicker">Je suis FOLASHADÉ</p>
+        <h1 class="hero__heading">Développeur Fullstack</h1>
+      </div>
+      <a class="hero__projects" href="#projets">Mes projets</a>
+    </section>
+  </body>
+</html>
