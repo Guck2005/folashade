@@ -5,6 +5,8 @@
   --white: #faf7f5;
   --white-muted: rgba(250, 247, 245, 0.72);
   --layout-grid-cols: 12;
+  /* Hauteur du bandeau hero (viewport) */
+  --hero-height: 100vh;
 }
 
 *,
@@ -157,12 +159,13 @@ body.menu-open {
 
 .hero {
   position: relative;
-  min-height: 100vh;
-  height: 100vh;
+  min-height: var(--hero-height);
+  height: var(--hero-height);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  scroll-margin-top: 0.75rem;
 }
 
 .hero__bg {
@@ -201,7 +204,7 @@ body.menu-open {
   left: 0;
   right: auto;
   top: auto;
-  bottom: clamp(1.35rem, 5.5vh, 3.25rem);
+  bottom: clamp(1rem, 4.2vh, 2.75rem);
   transform: none;
   z-index: 4;
   /* Aligné sur la 2e ligne verticale (= 1 piste de grille), comme le fond */
@@ -234,7 +237,7 @@ body.menu-open {
 .hero__projects {
   position: absolute;
   right: calc(100% / var(--layout-grid-cols));
-  bottom: clamp(1.35rem, 5.5vh, 3.25rem);
+  bottom: clamp(1rem, 4.2vh, 2.75rem);
   z-index: 4;
   display: inline-block;
   font-weight: 500;
@@ -300,11 +303,12 @@ body.menu-open {
 .hero__photo {
   display: block;
   height: 100%;
+  max-height: 95%;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   object-position: center bottom;
-  filter: drop-shadow(0 22px 44px rgba(90, 0, 0, 0.55));
+  /* filter: drop-shadow(0 22px 44px rgba(90, 0, 0, 0.55)); */
   /* Le portrait se fond dans le fond rouge : opaque en haut, transparent en bas */
   -webkit-mask-image: linear-gradient(
     to bottom,
@@ -331,8 +335,14 @@ body.menu-open {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --hero-height: 100vh;
+    --hero-height: min(100vh, 100dvh);
+  }
+
   .navbar {
     flex-wrap: nowrap;
+    padding: 1.1rem clamp(0.85rem, 4vw, 1.15rem);
   }
 
   .navbar__toggle {
@@ -439,38 +449,62 @@ body.menu-open {
     margin-top: 0.25rem;
   }
 
-  /* Portrait : éviter le bloc centré « petit » + grand vide au-dessus */
+  /* Portrait : occuper toute la hauteur utile du hero (au-dessus du texte) */
   .hero {
-    align-items: flex-end;
+    align-items: stretch;
   }
 
   .hero__content {
-    align-items: flex-end;
-    padding-bottom: clamp(5.5rem, 18vh, 8rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: stretch;
+    min-height: 0;
+    align-items: stretch;
+    padding-bottom: clamp(2.65rem, 9vh, 4.35rem);
   }
 
   .hero__photo-wrap {
+    flex: 1 1 auto;
+    min-height: 0;
     height: auto;
-    max-height: min(72vh, 600px);
+    max-height: none;
     width: 100%;
+    max-width: none;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
   }
 
   .hero__photo {
-    height: auto;
-    max-height: min(72vh, 600px);
+    display: block;
     width: auto;
-    max-width: 100%;
+    max-width: none;
+    height: 100%;
+    min-height: 0;
+    max-height: 85%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+
+  .hero__headline {
+    max-width: none;
+    bottom: clamp(2.35rem, 8vh, 4.25rem);
+    padding-left: clamp(0.85rem, 4.5vw, 1.25rem);
+    padding-right: clamp(0.85rem, 4.5vw, 1.25rem);
+  }
+
+  .hero__heading {
+    max-width: none;
+  }
+
+  .hero__projects {
+    bottom: clamp(2.35rem, 8vh, 4.25rem);
+    right: clamp(0.85rem, 4.5vw, 1.25rem);
   }
 }
 
 @media (max-width: 640px) {
-  :root {
-    --layout-grid-cols: 8;
-  }
-
   .navbar__nav {
     gap: 1rem 1.5rem;
   }
@@ -489,20 +523,21 @@ body.menu-open {
     left: 0;
     right: auto;
     transform: none;
-    bottom: clamp(1rem, 4.5vh, 2.75rem);
-    max-width: min(100%, 96vw);
+    bottom: clamp(2rem, 7.25vh, 3.65rem);
     text-align: left;
-    padding-right: 0.75rem;
+    padding-left: clamp(0.85rem, 4.5vw, 1.25rem);
+    padding-right: clamp(0.85rem, 4.5vw, 1.25rem);
   }
 
   .hero__heading {
-    font-size: clamp(1.05rem, 4vw, 2.15rem);
-    white-space: nowrap;
+    font-size: clamp(1rem, 5.2vw, 2rem);
+    line-height: 1.08;
+    white-space: normal;
   }
 
   .hero__projects {
-    right: calc(100% / var(--layout-grid-cols));
-    bottom: clamp(1rem, 4.5vh, 2.75rem);
+    right: clamp(0.85rem, 4.5vw, 1.25rem);
+    bottom: clamp(2rem, 7.25vh, 3.65rem);
     font-size: 0.75rem;
     padding: 0.48rem 1.1rem;
     letter-spacing: 0.02em;
@@ -510,5 +545,17 @@ body.menu-open {
 
   .hero__grid {
     opacity: 0.48;
+  }
+
+  .hero__content {
+    padding-bottom: clamp(2.75rem, 8.5vh, 4.25rem);
+  }
+
+  .hero__photo {
+    object-position: center 18%;
+  }
+
+  .hero__kicker {
+    font-size: clamp(0.95rem, 3.8vw, 1.2rem);
   }
 }
