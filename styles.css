@@ -207,10 +207,11 @@ body:not(.is-loading) .loader {
 
 .page-loader .block {
   position: fixed;
-  width: 6%;
+  width: 0;
   height: 100vh;
   height: 100dvh;
   background-color: #ffffff;
+  will-change: width;
 }
 
 .page-loader .block-1 {

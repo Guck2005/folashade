@@ -70,9 +70,9 @@
       tryFinishLoader();
     }
 
-    gsap.from(".block", {
+    gsap.to(".block", {
       duration: 0.8,
-      width: "0%",
+      width: "6%",
       ease: Power1.easeIn,
       delay: 2,
       stagger: 0.04,
