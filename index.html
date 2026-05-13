@@ -11,8 +11,45 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"
+      integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
-  <body>
+  <body class="is-loading">
+    <div
+      id="page-loader"
+      class="page-loader"
+      aria-busy="true"
+      aria-live="polite"
+      aria-label="Chargement"
+    >
+      <div class="overlay">
+        <div class="block block-1"></div>
+        <div class="block block-2"></div>
+        <div class="block block-3"></div>
+        <div class="block block-4"></div>
+        <div class="block block-5"></div>
+        <div class="block block-6"></div>
+        <div class="block block-7"></div>
+        <div class="block block-8"></div>
+        <div class="block block-9"></div>
+        <div class="block block-10"></div>
+        <div class="block block-11"></div>
+        <div class="block block-12"></div>
+        <div class="block block-13"></div>
+        <div class="block block-14"></div>
+        <div class="block block-15"></div>
+        <div class="block block-16"></div>
+        <div class="block block-17"></div>
+        <div class="block block-18"></div>
+        <div class="block block-19"></div>
+        <div class="block block-20"></div>
+      </div>
+    </div>
+    <div class="loader" aria-hidden="true">Chargement</div>
     <header class="navbar">
       <a class="navbar__brand" href="#accueil">
         <span class="navbar__brand-icon" aria-hidden="true">
@@ -57,12 +94,15 @@
       <div class="hero__grid" aria-hidden="true"></div>
       <div class="hero__content">
         <div class="hero__photo-wrap">
+          <div class="box" aria-hidden="true"></div>
           <img
-            class="hero__photo"
+            class="hero__photo img"
             src="assets/images/hamidath_photo.png"
             alt="Portrait"
             width="480"
             height="480"
+            fetchpriority="high"
+            decoding="async"
           />
         </div>
       </div>
