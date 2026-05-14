@@ -2,8 +2,8 @@
   --red: #d30000;
   --red-deep: #6a0000;
   --red-mid: #9a0000;
-  --white: #faf7f5;
-  --white-muted: rgba(250, 247, 245, 0.72);
+  --white: #ffe6e6;
+  --white-muted: rgba(255, 230, 230, 0.72);
   --layout-grid-cols: 12;
 }
 
@@ -66,7 +66,7 @@ body {
 
 .nav a {
   text-decoration: none;
-  color: rgba(250, 247, 245, 0.88);
+  color: rgba(255, 230, 230, 0.88);
   letter-spacing: 0.03em;
   font-size: 15px;
   font-weight: 400;
@@ -89,7 +89,7 @@ body {
   width: min(32%, 22rem);
   font-family: "Clash Grotesk", system-ui, sans-serif;
   font-weight: 400;
-  color: rgba(250, 247, 245, 0.85);
+  color: rgba(255, 230, 230, 0.85);
   text-transform: none;
   line-height: 1.45;
   letter-spacing: 0.02em;
@@ -145,7 +145,7 @@ body {
   text-transform: none;
   font-family: "Clash Grotesk", system-ui, sans-serif;
   font-weight: 400;
-  color: rgba(250, 247, 245, 0.78);
+  color: rgba(255, 230, 230, 0.78);
   font-size: 14px;
   letter-spacing: 0.03em;
 }

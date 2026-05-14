@@ -57,7 +57,9 @@
       finishPageLoaderWithFade();
     }
 
-    const heroImg = document.querySelector(".hero__photo.img");
+    const heroImg = document.querySelector(
+      ".hero--primary .hero__photo.img"
+    );
     const imageFallbackMs = 20000;
     const imageFallbackTimer = window.setTimeout(() => {
       if (!imageReady) markImageReady();
@@ -86,7 +88,7 @@
     });
 
     gsap.from(
-      ".navbar__brand, .navbar__nav a, .navbar__cta, .navbar__toggle, .hero__kicker, .hero__heading, .hero__projects",
+      ".navbar__brand, .navbar__nav a, .navbar__cta, .navbar__toggle, .hero--primary .hero__lead, .hero--primary .avatar-group__item, .hero--primary .avatar-group__more, .hero--primary .hero__aside-text, .hero--primary .hero__headline",
       {
         duration: 2,
         opacity: 0,
@@ -94,24 +96,33 @@
         ease: Expo.easeInOut,
         delay: 3,
         stagger: 0.06,
+        clearProps: "transform,opacity",
       }
     );
 
-    gsap.to(".box", {
+    gsap.from(".hero--primary .hero__projects", {
+      duration: 0.5,
+      opacity: 0,
+      ease: "power2.out",
+      delay: 3.6,
+      clearProps: "transform,opacity",
+    });
+
+    gsap.to(".hero--primary .box", {
       duration: 0.2,
       opacity: 1,
       ease: Expo.easeInOut,
       delay: 3.8,
     });
 
-    gsap.to(".img", {
+    gsap.to(".hero--primary .img", {
       duration: 0.2,
       opacity: 1,
       ease: Expo.easeInOut,
       delay: 4,
     });
 
-    gsap.to(".box", {
+    gsap.to(".hero--primary .box", {
       duration: 2.4,
       y: "-100%",
       ease: Expo.easeInOut,
@@ -201,4 +212,16 @@
   });
 
   syncInert();
+
+  const lightHero = document.getElementById("accueil-clair");
+  function syncNavbarOnLightHero() {
+    if (!lightHero) return;
+    const navH = navbar.getBoundingClientRect().height;
+    const r = lightHero.getBoundingClientRect();
+    const onLight = r.top < navH && r.bottom > 0;
+    navbar.classList.toggle("navbar--on-light", onLight);
+  }
+  syncNavbarOnLightHero();
+  window.addEventListener("scroll", syncNavbarOnLightHero, { passive: true });
+  window.addEventListener("resize", syncNavbarOnLightHero);
 })();
