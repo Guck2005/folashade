@@ -751,8 +751,7 @@ body.is-loading #accueil .hero__photo.img {
 
 @media (max-width: 900px) {
   :root {
-    --hero-height: 100vh;
-    --hero-height: min(100vh, 100dvh);
+    --hero-height: min(85vh, 100dvh, 100vh);
   }
 
   .navbar {
@@ -920,7 +919,7 @@ body.is-loading #accueil .hero__photo.img {
     max-width: none;
     height: 100%;
     min-height: 0;
-    max-height: min(64vh, 70%);
+    max-height: 90%;
     object-fit: cover;
     object-position: center 18%;
   }
@@ -930,14 +929,40 @@ body.is-loading #accueil .hero__photo.img {
     padding-left: clamp(1rem, 5vw, 1.35rem);
     padding-right: clamp(1rem, 5vw, 1.35rem);
     padding-bottom: max(0.65rem, env(safe-area-inset-bottom, 0px));
+    text-align: center;
   }
 
   .hero__headline {
-    max-width: none;
+    max-width: min(28rem, calc(100vw - 2rem));
+    margin-inline: auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero__title-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.65rem, 2.2vh, 1rem);
+  }
+
+  .hero__title-row > .hero__heading {
+    flex: 0 1 auto;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .hero__kicker {
+    text-align: center;
+  }
+
+  .hero__projects {
+    margin-inline: auto;
   }
 
   .hero__heading {
     max-width: none;
+    text-align: center;
   }
 }
 
@@ -967,15 +992,19 @@ body.is-loading #accueil .hero__photo.img {
     padding-left: clamp(1.05rem, 5.5vw, 1.45rem);
     padding-right: clamp(1.05rem, 5.5vw, 1.45rem);
     padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+    text-align: center;
   }
 
   .hero__headline {
-    text-align: left;
+    max-width: min(28rem, calc(100vw - 2rem));
+    margin-inline: auto;
+    text-align: center;
+    align-items: center;
   }
 
   .hero__title-row {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     flex-wrap: nowrap;
     gap: 0.85rem;
   }
@@ -988,6 +1017,7 @@ body.is-loading #accueil .hero__photo.img {
     white-space: normal;
     font-size: unset;
     line-height: 1.12;
+    text-align: center;
   }
 
   .hero__heading-part--role {
@@ -1006,10 +1036,7 @@ body.is-loading #accueil .hero__photo.img {
     font-size: clamp(0.8125rem, 3.5vw, 0.9375rem);
     padding: 0.58rem 1.25rem;
     letter-spacing: 0.025em;
-  }
-
-  .hero__grid {
-    opacity: 0.48;
+    margin-inline: auto;
   }
 
   .hero__content {
@@ -1019,11 +1046,6 @@ body.is-loading #accueil .hero__photo.img {
       clamp(2.5rem, 8vh, 3.75rem),
       env(safe-area-inset-bottom, 0px)
     );
-  }
-
-  .hero__photo {
-    max-height: min(58vh, 66%);
-    object-position: center 16%;
   }
 
   .hero__kicker {
