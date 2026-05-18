@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Folashadé">
-  <rect width="24" height="24" rx="5" fill="#0c0505" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Hamidath">
+  <rect width="32" height="32" rx="7" fill="#0c0505" />
   <path
     fill="#d30000"
-    d="M12 1.5l2.6 6.4 6.9.5-5.3 4.5 1.6 6.8L12 16.9 7.2 19.7l1.6-6.8-5.3-4.5 6.9-.5L12 1.5z"
+    d="M7 6h5v10h8V6h5v20h-5v-8H12v8H7z"
   />
 </svg>
