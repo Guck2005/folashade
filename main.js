@@ -15,7 +15,6 @@
 
   function finishPageLoaderWithFade() {
     const root = document.getElementById("page-loader");
-    document.body.classList.remove("is-loading");
     if (!root || !window.gsap) {
       finishPageLoaderInstant();
       return;
@@ -25,6 +24,7 @@
       duration: 0.45,
       ease: "power2.out",
       onComplete: () => {
+        document.body.classList.remove("is-loading");
         root.classList.add("is-done");
         root.setAttribute("aria-hidden", "true");
         root.setAttribute("aria-busy", "false");
@@ -73,60 +73,60 @@
     }
 
     gsap.to(".block", {
-      duration: 0.8,
+      duration: 0.55,
       width: "6%",
       ease: Power1.easeIn,
-      delay: 2,
-      stagger: 0.04,
+      delay: 0.35,
+      stagger: 0.025,
     });
 
     gsap.to(".loader", {
-      duration: 1,
+      duration: 0.45,
       opacity: 0,
       ease: Expo.easeInOut,
-      delay: 1.5,
+      delay: 0.2,
     });
 
     gsap.from(
       ".navbar__brand, .navbar__nav a, .navbar__cta, .navbar__toggle, .hero--primary .hero__lead, .hero--primary .avatar-group__item, .hero--primary .avatar-group__more, .hero--primary .hero__aside-text, .hero--primary .hero__headline",
       {
-        duration: 2,
+        duration: 1.1,
         opacity: 0,
         y: 30,
         ease: Expo.easeInOut,
-        delay: 3,
-        stagger: 0.06,
+        delay: 0.85,
+        stagger: 0.04,
         clearProps: "transform,opacity",
       }
     );
 
     gsap.from(".hero--primary .hero__projects", {
-      duration: 0.5,
+      duration: 0.45,
       opacity: 0,
       ease: "power2.out",
-      delay: 3.6,
+      delay: 1.35,
       clearProps: "transform,opacity",
     });
 
     gsap.to(".hero--primary .box", {
-      duration: 0.2,
+      duration: 0.18,
       opacity: 1,
       ease: Expo.easeInOut,
-      delay: 3.8,
+      delay: 1.5,
     });
 
     gsap.to(".hero--primary .img", {
-      duration: 0.2,
+      duration: 0.18,
       opacity: 1,
       ease: Expo.easeInOut,
-      delay: 4,
+      delay: 1.58,
     });
 
     gsap.to(".hero--primary .box", {
-      duration: 2.4,
+      duration: 1.1,
       y: "-100%",
       ease: Expo.easeInOut,
-      delay: 4,
+      delay: 1.58,
       onComplete: () => {
         timelineReady = true;
         tryFinishLoader();
